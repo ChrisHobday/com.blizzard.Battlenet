@@ -62,9 +62,12 @@ modules:
     sources:
       # Battle.net setup exe to be ran with Wine (Downloaded to /app/extra when user is installing because of extra-data)
       - type: extra-data
-        url: https://www.battle.net/download/getInstallerForGame?os=win&version=LIVE&gameProgram=BATTLENET_APP
-        sha256: 002f33fee7b8a159058368b7e93e492931c4ca72e90660bdb2691bcd62fedd3c
-        size: 4925568
+        url: https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe
+        sha256: a54baa4ff5696b465b47646f49d9a3afab9a72fa21005b2b71676a5b01c87d25
+        size: 4889744
+        x-checker-data: # Checks for a newer version when org.flathub.flatpak-external-data-checker is ran on this file
+          type: rotating-url
+          url: https://www.battle.net/download/getInstallerForGame?os=win&version=LIVE&gameProgram=BATTLENET_APP # Download the current file this url points to and compare hash/size to hash/size above
         filename: BattlenetSetup.exe
 
       # Script that is automatically ran when user is installing, after extra-data is downloaded
